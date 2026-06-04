@@ -9,12 +9,23 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        release {
+            storeFile file('keystore.jks')
+            storePassword 'password'
+            keyAlias 'my-key-alias'
+            keyPassword 'password'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             ndk { abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64' }
+            signingConfig signingConfigs.release
         }
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
