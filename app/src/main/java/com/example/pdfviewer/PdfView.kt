@@ -1,7 +1,6 @@
 package com.example.pdfviewer
 import android.content.Context
 import android.graphics.*
-import android.graphics.pdf.PdfRenderer
 import android.util.AttributeSet
 import android.view.*
 import java.io.File
