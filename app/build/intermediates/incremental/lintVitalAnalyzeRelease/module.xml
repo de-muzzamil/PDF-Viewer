@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/home/user/PDF-Viewer/app"
+    name=":app"
+    type="APP"
+    maven="SimplePdfViewer:app:"
+    agpVersion="8.2.0"
+    buildFolder="build"
+    bootClassPath="/home/user/android-sdk/platforms/android-34/android.jar:/home/user/android-sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>
