@@ -1,0 +1,3 @@
+-keep class com.artifex.mupdf.** { *; }
+-keep class com.artifex.mupdf.fitz.** { *; }
+-dontwarn com.artifex.mupdf.**
