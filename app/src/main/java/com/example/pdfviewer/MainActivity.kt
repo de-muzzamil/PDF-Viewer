@@ -10,5 +10,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+
+        intent?.data?.let { uri ->
+            binding.pdfView.fromUri(uri)
+                .load()
+        }
     }
 }
