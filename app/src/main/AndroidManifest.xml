@@ -21,5 +21,6 @@
                 <data android:mimeType="application/pdf" />
             </intent-filter>
         </activity>
+        <activity android:name="com.artifex.mupdf.viewer.DocumentActivity" android:exported="true" />
     </application>
 </manifest>

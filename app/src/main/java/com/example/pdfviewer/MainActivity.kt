@@ -1,7 +1,9 @@
 package com.example.pdfviewer
 import android.os.Bundle
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pdfviewer.databinding.ActivityMainBinding
+import com.artifex.mupdf.viewer.DocumentActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -12,8 +14,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         intent?.data?.let { uri ->
-            binding.pdfView.fromUri(uri)
-                .load()
+            val mupdfIntent = Intent(this, DocumentActivity::class.java)
+            mupdfIntent.action = Intent.ACTION_VIEW
+            mupdfIntent.data = uri
+            startActivity(mupdfIntent)
+            finish()
         }
     }
 }
