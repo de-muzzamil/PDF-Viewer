@@ -21,7 +21,14 @@
                 <data android:mimeType="application/pdf" />
             </intent-filter>
         </activity>
-        <activity android:name="com.artifex.mupdf.viewer.DocumentActivity" android:exported="false" android:configChanges="orientation|screenSize|keyboardHidden" tools:node="replace" />
+
+        <!-- We override the library's DocumentActivity to ensure it doesn't declare its own intent filters -->
+        <activity
+            android:name="com.artifex.mupdf.viewer.DocumentActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            tools:node="replace" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

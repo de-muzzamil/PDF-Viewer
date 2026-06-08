@@ -42,13 +42,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun openPdf(uri: Uri) {
         try {
-            val finalUri = if (uri.scheme == "content") {
-                copyToProviderUri(uri)
-            } else {
-                // If it's a file:// URI, MuPDF DocumentActivity might still struggle with exposure on 24+
-                // Best to always use FileProvider for file:// too or copy it.
-                copyToProviderUri(uri)
-            }
+            // Always copy to a internal file and use FileProvider for maximum compatibility
+            val finalUri = copyToProviderUri(uri)
 
             val mupdfIntent = Intent(this, DocumentActivity::class.java)
             mupdfIntent.action = Intent.ACTION_VIEW
@@ -76,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 101 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             pendingUri?.let { openPdf(it) }
         } else {
+            // If permission denied, we still try because it might be a content URI that doesn't need it.
             pendingUri?.let { openPdf(it) }
         }
     }
