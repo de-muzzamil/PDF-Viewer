@@ -25,9 +25,9 @@
         </activity>
 
         <activity
-            android:name="com.artifex.mupdf.viewer.DocumentActivity"
+            android:name=".ReaderActivity"
             android:exported="true"
-            tools:node="replace">
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -37,6 +37,10 @@
                 <data android:mimeType="application/pdf" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.artifex.mupdf.viewer.DocumentActivity"
+            tools:node="remove" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
